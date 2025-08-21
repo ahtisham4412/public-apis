@@ -27,7 +27,33 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        {children}
+       
+        <div className="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+          <div className="absolute -top-24 left-1/2 h-[40rem] w-[40rem] -translate-x-1/2 rounded-full bg-gradient-to-br from-[#2a2a2a]/60 via-[#1a1a1a]/40 to-transparent blur-3xl" />
+          <div className="absolute -bottom-24 right-0 h-[32rem] w-[32rem] rounded-full bg-gradient-to-tr from-[#222]/60 via-[#111]/40 to-transparent blur-3xl" />
+          <div className="absolute inset-0 bg-[radial-gradient(transparent_1px,transparent_1px),radial-gradient(#ffffff14_1px,transparent_1px)] bg-[size:20px_20px,20px_20px] bg-[position:0_0,10px_10px]" />
+        </div>
+
+        
+        <header className="sticky top-0 z-20 border-b border-white/20 bg-[#0d0d0d]/90 backdrop-blur-md">
+          <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
+            <a href="/" className="text-sm font-semibold tracking-wide text-yellow-300">SWAPI Explorer</a>
+            <nav className="hidden gap-6 text-xs text-gray-100 sm:flex">
+              <a href="/" className="hover:text-white">Home</a>
+              <a href="https://swapi.py4e.com/" target="_blank" rel="noreferrer" className="hover:text-white">API</a>
+            </nav>
+          </div>
+        </header>
+
+        <main className="min-h-dvh">
+          {children}
+        </main>
+
+        <footer className="border-t border-white/20 bg-[#0d0d0d]/90 py-6 text-center text-xs text-gray-300">
+          <p>
+            Data from <a href="https://swapi.py4e.com/" target="_blank" rel="noreferrer" className="text-yellow-300 hover:underline">SWAPI</a>. Built with Next.js.
+          </p>
+        </footer>
       </body>
     </html>
   );
